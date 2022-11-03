@@ -1,4 +1,3 @@
-@CoinMarketAppTests
 Feature: CoinMarket UI Tests
   Background:Launching CoinMarketCap url
     Given Launch CoinMarketCap Application

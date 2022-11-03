@@ -24,13 +24,12 @@ Steps to execute the tests:
 
 There two ways to execute the tests from this framework:
 1. Run as junit by right clicking on src/test/java/testrunner/TestRunner.java and click Run
-   ![image](https://user-images.githubusercontent.com/19645866/134804521-5cf04ee1-9e2f-4c43-b175-3631542b1666.png)
+![img_3.png](img_3.png)
 
 2. Run as maven task using mvn clean verify
-
-![image](https://user-images.githubusercontent.com/19645866/134804536-657e6d32-9024-4633-af0b-919fb89d2b77.png)
+![img_4.png](img_4.png)
 
 Report - Cucumber_SelJava_MS\target\cucumber-report-html\cucumber-html-reports
-![image](https://user-images.githubusercontent.com/19645866/134804759-4d19a375-8330-497e-bf66-22fef7e74a17.png)
+![img_2.png](img_2.png)
 
 

@@ -4,15 +4,14 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-
-        plugin = {"json:target/cucumber.json","pretty",
-                "html:target/cucumber-pretty"
-
-        },
-
         features = {"src/test/resources/features"},
-        glue = {"StepDefinitions"},
-        tags = "@CoinMarketAppTests"
+        glue = {"StepDefinitions"}
+        ,plugin = {"pretty",
+        "html:target/cucumber-reports/cucumber-pretty",
+        "json:target/cucumber-reports/cucumber.json"
+        },
+        publish = true,
+        monochrome = true
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {

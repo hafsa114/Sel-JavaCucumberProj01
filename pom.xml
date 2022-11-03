@@ -95,10 +95,12 @@
                     <goal>generate</goal>
                 </goals>
                 <configuration>
-                    <projectName>RestAssuredProj1</projectName>
+                    <projectName>Sel-JavaCucumberProj01</projectName>
                     <parallelTesting>false</parallelTesting>
                     <outputDirectory>reports/html-reports</outputDirectory>
+<!--
                     <cucumberOutput>target/cucumber.json</cucumberOutput>
+-->
 
                 </configuration>
             </execution>

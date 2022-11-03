@@ -1,4 +1,3 @@
-@CoinMarketAppTests
 Feature: CoinMarketCap API OR BACKEND Tasks
 
   Scenario Outline: 1 - retrieve ids and validate currency conversion
