@@ -34,11 +34,17 @@ Report - Cucumber_SelJava_MS\target\cucumber-report-html\cucumber-html-reports
 
 
 Note: 1 Failure in above report is expected failure as ETH is not associated with tag:mineable in actual.
+
 As per requirement :Confirm that the currency has the mineable tag associated with it:
+
 "tags": [ "mineable" ]
 
 Actual : mineable tag is not associated.Hence test fail.
+
+
 Below is the API response :
+
+
 "tags": [
 "pos",
 "smart-contracts",
@@ -69,5 +75,6 @@ Below is the API response :
 "paradigm-portfolio",
 "injective-ecosystem"
 ],
+
 
 In case if mineable tag is associated with the ETH then test script will auto pass.
