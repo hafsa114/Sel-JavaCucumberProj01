@@ -1,6 +1,4 @@
 # Sel-JavaCucumberProj01
-# Cucumber_SelJava_MS
-
 This is an End to End framework that covers WEB and API Automation using Java / Selenium /Rest Assured and Cucumber BDD.
 
 System Requirements - prerequisites
