@@ -33,3 +33,41 @@ Report - Cucumber_SelJava_MS\target\cucumber-report-html\cucumber-html-reports
 ![img_2.png](img_2.png)
 
 
+Note: 1 Failure in above report is expected failure as ETH is not associated with tag:mineable in actual.
+As per requirement :Confirm that the currency has the mineable tag associated with it:
+"tags": [ "mineable" ]
+
+Actual : mineable tag is not associated.Hence test fail.
+Below is the API response :
+"tags": [
+"pos",
+"smart-contracts",
+"ethereum-ecosystem",
+"coinbase-ventures-portfolio",
+"three-arrows-capital-portfolio",
+"polychain-capital-portfolio",
+"binance-labs-portfolio",
+"blockchain-capital-portfolio",
+"boostvc-portfolio",
+"cms-holdings-portfolio",
+"dcg-portfolio",
+"dragonfly-capital-portfolio",
+"electric-capital-portfolio",
+"fabric-ventures-portfolio",
+"framework-ventures-portfolio",
+"hashkey-capital-portfolio",
+"kenetic-capital-portfolio",
+"huobi-capital-portfolio",
+"alameda-research-portfolio",
+"a16z-portfolio",
+"1confirmation-portfolio",
+"winklevoss-capital-portfolio",
+"usv-portfolio",
+"placeholder-ventures-portfolio",
+"pantera-capital-portfolio",
+"multicoin-capital-portfolio",
+"paradigm-portfolio",
+"injective-ecosystem"
+],
+
+In case if mineable tag is associated with the ETH then test script will auto pass.
