@@ -23,14 +23,19 @@ prerequisites
 Follow below steps to  execute the tests:
 
 There two ways to execute the tests from this framework:
-1. Run as junit by right clicking on src/test/java/testrunner/TestRunner.java and click Run
-![img_3.png](img_3.png)
+1. Run as junit by right clicking on src\test\java\org\runnertest/TestRunner.java and click Run
+![img_5.png](img_5.png)
 
-2. Run as maven task using mvn clean verify
-![img_4.png](img_4.png)
+2. Run as maven task using mvn clean verify through terminal or Maven<Execute Maven Goal
+![img_6.png](img_6.png)
 
-Report - Cucumber_SelJava_MS\target\cucumber-report-html\cucumber-html-reports
-![img_2.png](img_2.png)
+To view feature   Report - Sel-JavaCucumberProj01\target\cucumber-reports\cucumber-pretty
+![img_10.png](img_10.png)
+
+To view Feature file graphical Report - reports/html-reports/cucumber-html-reports/overview-features.html
+![img_9.png](img_9.png)
+
+Note:To generate above report execute the tests through mvn clean verify command.
 
 
 Note: 1 Failure in above report is expected failure as ETH is not associated with tag:mineable in actual.
