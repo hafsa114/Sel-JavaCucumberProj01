@@ -1,15 +1,14 @@
 package com.base;
 
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.util.Properties;
+import java.util.*;
 
 public class ReadConfig {
     static Properties prop;
     static String propertyFilePath= "src/main/resources/config.properties";
+
 
     public ReadConfig()
     {
@@ -81,10 +80,12 @@ public class ReadConfig {
             prop.setProperty(key, value);
             prop.store(globalFileOut, null);
             globalFileOut.close();
-            //logReport(Status.PASS, "Update Perspective : " + Value + " is stored successfully in property file",false, driver, true);
+            System.out.println(value+" is stored in property file");
+
         }catch(Exception e)
         {
-            // logReport(Status.FAIL, "Update Perspective: " + Value + " is not stored in property file",false, driver, true);
+            System.out.println(value+" is not stored in property file");
+
         }
     }
 

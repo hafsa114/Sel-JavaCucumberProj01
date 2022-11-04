@@ -29,7 +29,6 @@ public class ControllerSelTest {
 
         switch (browser) {
             case "CHROME":
-                // https://stackoverflow.com/questions/48450594/selenium-timed-out-receiving-message-from-renderer
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("start-maximized");
                 options.addArguments("enable-automation");
@@ -40,7 +39,6 @@ public class ControllerSelTest {
                 options.addArguments("–disable-dev-shm-usage");
                 options.addArguments("–disable-browser-side-navigation");
                 options.addArguments("–disable-gpu");
-                //options.addArguments("–headless"); // only if you are ACTUALLY running headless
                 options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver();
                 break;

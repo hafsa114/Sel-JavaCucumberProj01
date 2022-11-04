@@ -25,7 +25,7 @@
         <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>slf4j-reload4j</artifactId>
             <version>2.0.3</version>
             <scope>test</scope>
         </dependency>
@@ -98,11 +98,8 @@
                     <projectName>Sel-JavaCucumberProj01</projectName>
                     <parallelTesting>false</parallelTesting>
                     <outputDirectory>reports/html-reports</outputDirectory>
-<!--
-                    <cucumberOutput>target/cucumber.json</cucumberOutput>
--->
-
-                </configuration>
+                    <cucumberOutput>target/cucumber-reports/cucumber.json</cucumberOutput>
+             </configuration>
             </execution>
         </executions>
     </plugin>

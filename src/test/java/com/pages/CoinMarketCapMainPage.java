@@ -11,15 +11,11 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
-
 import static com.base.LocatorsUtilTst.*;
 
 
 public class CoinMarketCapMainPage extends ControllerSelTest {
-static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
+ final static Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
     static CommonUtilityClass commonUtils=new CommonUtilityClass();
     private  static ReadConfig prop=new ReadConfig();
 
@@ -37,7 +33,7 @@ static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
       commonUtils.ScrollIntoView(totalRows,driver);
       commonUtils.wait(driver,40);
       List<WebElement> totalRowsDisplayed=commonUtils.getWebElements_List(totalRows,driver);
-      Assert.assertEquals(String.valueOf(totalRowsDisplayed.size()),noOfRows);
+      Assert.assertEquals(String.valueOf(totalRowsDisplayed.size()),noOfRows,"UI displays total "+noOfRows +"as selected");
    }
 
    public static void clickFilterButton(WebDriver driver){
@@ -64,7 +60,7 @@ static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
     private static void filterArrowBtnClick(By element, WebDriver driver, By inputField){
         commonUtils.ScrollIntoView(element,driver);
         commonUtils.clickEle(element,driver);
-     //   commonUtils. waitUntilVisibility_Ele(inputField,20,driver);
+        commonUtils. waitUntilVisibility_Ele(inputField,20,driver);
     }
     private static void inputFilterValues(By minValField, By maxValField, String minValue, String maxValue, WebDriver driver){
         commonUtils.ScrollIntoView(minValField,driver);
@@ -91,7 +87,7 @@ static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
     }
 
     public static void applyFilter(WebDriver driver){
-
+        commonUtils.wait(driver,20);
         commonUtils.ScrollIntoView(applyFilterBtn,driver);
         commonUtils.clickEle(applyFilterBtn,driver);
         log.info("Applied filter");
@@ -99,10 +95,11 @@ static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
     }
     public static void showResultsClick(String marketCapFilterRange, String priceFilterRange, WebDriver driver){
         commonUtils.ScrollIntoView(marketCapFilteredTxt,driver);
-       // Assert.assertEquals(marketCapFilterRange,commonUtils.getText(marketCapFilteredTxt,driver));
-       // Assert.assertEquals(priceFilterRange,commonUtils.getText(priceFilteredTxt,driver));
-        commonUtils.clickEle(showResultsBtn,driver);
-        log.info("Selected filter range is validated and clicked on show results successfully");
+        commonUtils.wait(driver,20);
+         Assert.assertEquals(marketCapFilterRange,commonUtils.getText(marketCapFilteredTxt,driver),"Selected marketcap filter range matches with given range i.e;"+prop.getMarketRangeVal());
+         Assert.assertEquals(priceFilterRange,commonUtils.getText(priceFilteredTxt,driver),"Selected price filter range matches with given range i.e;"+prop.getPriceRangeVal());
+         commonUtils.clickEle(showResultsBtn,driver);
+         log.info("Selected filter range is validated and clicked on show results successfully");
 
     }
 
@@ -130,30 +127,13 @@ static final Logger log=  LoggerFactory.getLogger(CoinMarketCapMainPage.class);
         Boolean flag;
         if((expectedMin.max(actualMin).equals(actualMin)) && (expectedMax.min(actualMax).equals(actualMax))){
             flag=true;
-            Assert.assertTrue(flag);
-            System.out.println("The values displayed after applying filters are as expected in given range"+flag);
         }else{
             flag=false;
-            System.out.println("The values displayed after applying filters are not as expected in given range"+flag);
         }
-
+        Boolean expectedFlag=true;
+       Assert.assertEquals(flag,expectedFlag,"The values displayed after applying filters are as expected in given range");
 
     }
 
-    public static void verifyResults(String min, String max, WebDriver driver){
-        List<WebElement>  priceList=commonUtils.getWebElements_List(listpriceVal,driver);
-        List<Integer>  actuallistval=new ArrayList<>();;
-        for (WebElement priceval : priceList) {
-            String pricevalText = priceval.getText().replace("$","").replace(",","");
-            actuallistval.add(Integer.parseInt(pricevalText));
-        }
-        List<Integer> list=new ArrayList<>();
-        list= IntStream.range(Integer.parseInt(min),Integer.parseInt(max)+1).boxed().collect(Collectors.toList());
-        Set<Integer> set =new HashSet<>(list);
-        set.addAll(actuallistval);
-        List<Integer> finalList = list;
-        Boolean bool=actuallistval.stream().allMatch(s-> finalList.contains(s));
-        System.out.println("bool val"+bool);
-    }
 
 }

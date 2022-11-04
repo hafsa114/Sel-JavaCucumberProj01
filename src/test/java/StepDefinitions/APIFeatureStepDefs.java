@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class APIFeatureStepDefs {
-    // final Logger logger = LoggerFactory.getLogger(ApiStepDefs.class);
+
     CoinMarketCapRestAPIPage restAPIPage = new CoinMarketCapRestAPIPage();
     @Given("user requests ids using get request call provided")
     public void userRequestsIdsUsingGetRequestCallProvided() {

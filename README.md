@@ -1,11 +1,12 @@
 # Sel-JavaCucumberProj01
-This is an End to End framework that covers UI and API Automation using Java / Selenium /Rest Assured and Cucumber BDD.
+This is an End to End framework that covers up UI and API Automation using Java / Selenium /Rest Assured and Cucumber BDD.
 
 System Requirements - prerequisites
 --Java 8
 --Maven
 
-Example:CoinMarket UI Tests 
+Example: 
+Feature : CoinMarket UI Tests 
 
 Background:Launching CoinMarketCap url
 Given Launch CoinMarketCap Application
@@ -14,10 +15,9 @@ Scenario: 1- Navigate to CoinMarketCap application url and validate the rows cou
 When user selects a value from show rows dropdown
 Then row count on the UI should match with selection value
 
-
-
 prerequisites
 1.Project Clone.
+
 2.Please verify project sync and dependencies downloaded.
 
 Follow below steps to  execute the tests:

@@ -12,9 +12,6 @@ public class CommonUtilityClass extends ControllerSelTest {
 private Actions actions;
  private  static ReadConfig prop=new ReadConfig();
 
-
-
-
     public static WebElement findEle(By element, WebDriver driver){
        return driver.findElement(element);
 
@@ -66,7 +63,6 @@ private Actions actions;
             waitUntilElementLoad(element, 30,driver);
             findEle(element,driver).sendKeys(text);
     } catch (Exception e) {
-         // logReport(Status.FAIL, "Element  is not available", false, driver, true);
             e.printStackTrace();
         }
 
@@ -79,10 +75,8 @@ private Actions actions;
             ele.sendKeys(Keys.chord(Keys.CONTROL, "a"));
             ele.sendKeys(Keys.BACK_SPACE);
             ele.sendKeys(text);
-           // logReport(Status.PASS, "Element  is  available", true, driver, true);
         } catch (Exception e) {
-          // logReport(Status.FAIL, "Element  is not available", false, driver, true);
-            e.printStackTrace();
+           e.printStackTrace();
         }
 
     }
@@ -128,15 +122,7 @@ private Actions actions;
         driver.manage().timeouts().implicitlyWait(waitSeconds, TimeUnit.SECONDS);
 
     }
-    public  void explicitwait(int waitSeconds) {
-        try{
-            Thread.sleep(waitSeconds);
-        } catch (Exception e)
-        {
-            System.out.println(e);
-        }
 
-    }
     public void waitUntilVisibility_Ele(By element, int waitSeconds,WebDriver driver) {
 
         WebDriverWait wait = new WebDriverWait(driver, waitSeconds);

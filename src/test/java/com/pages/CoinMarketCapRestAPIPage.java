@@ -12,12 +12,11 @@ import static io.restassured.RestAssured.given;
 
 public class CoinMarketCapRestAPIPage
 {
-   // final Logger logger = LoggerFactory.getLogger(restApiTest.class);
-    public HashSet<Boolean> flagList=new HashSet<>();
+   public HashSet<Boolean> flagList=new HashSet<>();
     public Response response;
     public List<String> l1;
     List<HashMap<Object, Object>> jsonResponse;
-
+    Map<Object,HashMap<Object,Object>> jResponse;
     public void getRequest() {
         RestAssured.defaultParser = Parser.JSON;
         RestAssured.baseURI = "https://pro-api.coinmarketcap.com/v1";
@@ -71,26 +70,23 @@ public class CoinMarketCapRestAPIPage
                 .get("/cryptocurrency/info")
                 .then()
                 .extract().response();
-       // logger.info(response.jsonPath().get("data.1027.urls.website").toString());
         List<Object> ll = response.jsonPath().get("data.1027.urls.website");
         Assert.assertTrue(ll.size()>0);
     }
 
 
     public void valiateJsonResponseforID(String val1,String val2,String val3,String val4,String val5) {
-        Assert.assertEquals(200, response.statusCode());
-        Assert.assertEquals(val1, response.jsonPath().get("data.1027.logo").toString());
-        Assert.assertEquals(val2, response.jsonPath().getList("data.1027.urls.technical_doc").get(0).toString());
-        System.out.println(response.jsonPath().get("data.1027.urls.technical_doc").toString());
-        Assert.assertEquals(val3, response.jsonPath().get("data.1027.symbol").toString());
-        Assert.assertEquals(val4, response.jsonPath().get("data.1027.date_added").toString());
+        Assert.assertEquals(200, response.statusCode(),"Status code is validated");
+        Assert.assertEquals(val1, response.jsonPath().get("data.1027.logo").toString(),"Verified : logo URL is available");
+        Assert.assertEquals(val2, response.jsonPath().getList("data.1027.urls.technical_doc").get(0).toString(),"Verified : technical_doc URL is available");
+        Assert.assertEquals(val3, response.jsonPath().get("data.1027.symbol").toString(),"Verified : ETH symbol is available");
+        Assert.assertEquals(val4, response.jsonPath().get("data.1027.date_added").toString(),"Verified : Date is been added");
         try{
             Assert.assertTrue(response.jsonPath().getList("data.1027.tags").contains(val5));
 
         }catch (Exception e) {
             System.out.println("tags: [ mineable ] is not associated! Hence test will fail");
             e.printStackTrace();
-
         }
 
     }
@@ -105,7 +101,11 @@ public class CoinMarketCapRestAPIPage
                 .then()
                 .extract().response();
         Assert.assertEquals(200, response.statusCode());
-        Map<Object,HashMap<Object,Object>> jResponse = response.jsonPath().getMap("data");
+        jResponse = response.jsonPath().getMap("data");
+
+    }
+
+    public void cryptocurrencyValidation(){
         List<Object> newL = new ArrayList<>();
         jResponse.forEach(
                 (i,j)->{
@@ -123,9 +123,6 @@ public class CoinMarketCapRestAPIPage
                 flagList.add(false);
             }
         }
-    }
-
-    public void cryptocurrencyValidation(){
         Boolean flag = true;
         if(flagList.contains(false)){
             flag=false;

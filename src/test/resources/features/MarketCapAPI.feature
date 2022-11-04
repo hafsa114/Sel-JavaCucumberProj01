@@ -15,7 +15,9 @@ Feature: CoinMarketCap API OR BACKEND Tasks
     Examples:
       | givenID | logo_URL                                                     | technical_doc_URL                                 | SymbolOfCurrency | date added               | tag      |
       | 1027    | https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png | https://github.com/ethereum/wiki/wiki/White-Paper | ETH              | 2015-08-07T00:00:00.000Z | mineable |
-#Note the technical_doc_url given in document is https://github.com/thereum/wiki/wiki/White-Paper which i considered as spelling mistake and passed corerct url here****
+
+#Note : There is spelling mistake in the requirement doc for the technical_doc_url i.e; https://github.com/thereum/wiki/wiki/White-Paper . I considered as spelling mistake and passed corerct url https://github.com/ethereum/wiki/wiki/White-Paper>****
+
    Scenario: 3 - Retrive and validate cryptocurrency info details of first 10 currencies
      Given user issues the cryptocurrency info call for first 10 currencies
      Then user must fetch and verify currencies with mineable tag and their cryptocurrencies
